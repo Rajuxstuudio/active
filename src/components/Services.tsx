@@ -8,9 +8,7 @@ import {
   CheckCircle2,
   Lightbulb,
   Layout,
-  Brush,
-  BaggageClaim,
-  Briefcase
+  Brush
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -96,7 +94,7 @@ const services = [
   }
 ];
 
-const ServicesSection = () => {
+const Services = () => {
   const [isFormOpen, setIsFormOpen] = useState(false);
 
   return (
@@ -110,10 +108,13 @@ const ServicesSection = () => {
             variants={containerVariants}
             className="text-center mb-16"
           >
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-8 lg:mb-8 animate-fade-in-up">
-          <Briefcase className="w-4 h-4 text-primary" />
-          <span className="text-sm font-medium text-foreground">Services</span>
-        </div>
+            
+            <motion.div variants={itemVariants}>
+              <Badge variant="secondary" className="mb-4 px-4 py-2">
+                <Sparkles className="w-4 h-4 mr-2" />
+                Services
+              </Badge>
+            </motion.div>
             
             <motion.h1 
               variants={itemVariants}
@@ -124,9 +125,16 @@ const ServicesSection = () => {
             
             <motion.p 
               variants={itemVariants}
-              className="text-lg text-muted-foreground max-w-3xl mx-auto"
+              className="text-lg text-muted-foreground/80 italic mb-4 max-w-2xl mx-auto"
             >
               I'm a designer who understands code, and a developer who respects design — focused on building products that actually work.
+            </motion.p>
+            
+            <motion.p 
+              variants={itemVariants}
+              className="text-lg text-muted-foreground max-w-3xl mx-auto"
+            >
+              I design, build, and ship digital products — combining thoughtful UX, clean UI, and reliable development to turn ideas into real, usable experiences.
             </motion.p>
           </motion.div>
 
@@ -339,8 +347,17 @@ const ServicesSection = () => {
           <ServiceRequestForm />
         </DialogContent>
       </Dialog>
+
+      {/* Footer */}
+      <footer className="border-t border-border/50">
+        <div className="container max-w-7xl mx-auto px-4 py-6">
+          <p className="text-center text-muted-foreground text-sm">
+            © 2025 Portfolio. Designed with passion.
+          </p>
+        </div>
+      </footer>
     </div>
   );
 };
 
-export default ServicesSection;
+export default Services;
