@@ -1,24 +1,22 @@
 import { ProjectDB } from "./type";
 
 // mockups
-import mobileMockup1 from "@/assets/mockup-mobile-1.png";
-import desktopMockup1 from "@/assets/mockup-desktop-1.png";
-import mobileMockup2 from "@/assets/mockup-mobile-2.png";
-import desktopMockup2 from "@/assets/mockup-desktop-2.png";
-import bumpermandi from "@/assets/logo/bumpermandi.png"
-import eclelon from "@/assets/logo/eclelon.png"
+import rajvir from "@/assets/logo/RLogo.png";
 import utility from "@/assets/logo/Utility.png"
+import utilityplusM from "@/assets/Uxui/utlityplusM.png"
+import utilityplusW from "@/assets/Uxui/utlityplusW.png"
 import cloudgavel from "@/assets/logo/cloudgavel.png"
-import rajvir from "@/assets/logo/RLogo.png"
+import cloudgavelM from "@/assets/Uxui/cloudgavelM.png"
+import CloudgavelW from "@/assets/Uxui/cloudgavelW.png"
+import eclelon from "@/assets/logo/eclelon.png"
+import echelonM from "@/assets/Uxui/echelonM.jpg"
+import echelonW from "@/assets/Uxui/echelon.png"
 import captable from "@/assets/logo/Captable.png"
-import utilityplusM from "@/database/Uxui/utlityplusM.png"
-import utilityplusW from "@/database/Uxui/utlityplusW.png"
-import cloudgavelM from "@/database/Uxui/cloudgavelM.png"
-import CloudgavelW from "@/database/Uxui/cloudgavelW.png"
-import echelonW from "@/database/Uxui/echelon.png"
-import captableL from "@/database/Uxui/captableL.png"
-import bumpermandiM from "@/database/Uxui/bumpermandiM.png"
-import bumpermandiW from "@/database/Uxui/bumpermandiW.png"
+import captableL from "@/assets/Uxui/captableL.png"
+import captableM from "@/assets/Uxui/captableM.jpg"
+import bumpermandi from "@/assets/logo/bumpermandi.png"
+import bumpermandiM from "@/assets/Uxui/bumpermandiM.png"
+import bumpermandiW from "@/assets/Uxui/bumpermandiW.png"
 
 export const uxuiDB: ProjectDB[] = [
   {
@@ -84,14 +82,14 @@ export const uxuiDB: ProjectDB[] = [
     id: "4",
     logo: eclelon,
     name: "Echelon Constructors",
-    colors: ["#039BE5", "#F68C3C", "#979B9E", "#3D455A"],
+    colors: ["#007AFF",  "#F5F5FB"],
     font: "Inter",
     isLive: false,
     description:
-      "Construction Project Management Software designed to handle project planning, scheduling, resource allocation, and progress tracking with detailed reports.",
+      "Construction Project Management Software built to streamline every stage of a project. It enables effective planning, scheduling, and resource allocation while tracking progress in real time. With detailed reporting and insights, it helps teams stay organized, improve collaboration, and deliver projects on time and within budget.",
     stack: ["Figma", "React", "TypeScript"],
     duration: "3 Months",
-    mobileMockup: "",
+    mobileMockup: echelonM,
     webMockup: echelonW,
     category: "ux-ui",
     businessDomain: "Construction Tech",
@@ -102,15 +100,15 @@ export const uxuiDB: ProjectDB[] = [
     id: "5",
     logo: captable,
     name: "Captable",
-    colors: ["#039BE5", "#F68C3C", "#979B9E", "#3D455A"],
+    colors: ["#001F5F",  "#DEE9FD"],
     font: "Inter",
     isLive: true,
     websiteUrl: "https://captable.app",
     description:
-      "A fintech product focused on cap table management and investment tracking with improved UX.",
+      "An angel fund management system designed to simplify equity ownership, cap table oversight, and investment tracking. It enhances transparency and efficiency for investors and startups, offering improved user experience with streamlined reporting, resource allocation, and real-time insights to support smarter funding decisions and portfolio growth.",
     stack: ["Figma", "React", "Fintech UX"],
     duration: "2 Months",
-    mobileMockup: "",
+    mobileMockup: captableM,
     webMockup: captableL,
     category: "ux-ui",
     businessDomain: "Fintech",

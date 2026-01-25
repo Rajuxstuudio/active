@@ -52,11 +52,7 @@ export const HeroSection = () => {
             <a href="#projects">View My Work</a>
           </Button>
           <Button variant="glass" size="xl" asChild>
-            <a
-              href="https://drive.google.com/file/d/1HtAW7Grsp5yHEIstNiU7uHrGJe699qy3/view"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href="/active/Rajvir-UX-Resume.pdf" download="/active/Rajvir-UX-Resume.pdf">
               Download Resume
             </a>
           </Button>
@@ -112,3 +108,5 @@ export const HeroSection = () => {
     </section>
   );
 };
+
+

@@ -243,9 +243,9 @@ export default function ServicesSection() {
 
           <motion.h1
             variants={itemVariants}
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6"
+            className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold mb-6"
           >
-            What I <span className="gradient-text">Do</span>
+            What I <span className="font-display gradient-text">Do</span>
           </motion.h1>
 
           <motion.p

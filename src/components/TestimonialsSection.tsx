@@ -71,9 +71,10 @@ export const TestimonialsSection = () => {
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         {/* Section header */}
         <div className="text-center mb-12 lg:mb-20">
-          <span className="inline-block px-4 py-2 rounded-full glass text-xs md:text-sm font-medium text-accent mb-4 lg:mb-6">
-            Testimonials
-          </span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-8">
+            <Quote className="w-4 h-4 text-primary" />
+            <span className="text-sm font-medium">Testimonials</span>
+          </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-foreground mb-4 lg:mb-6">
             Results that speaks volume
           </h2>

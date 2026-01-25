@@ -119,9 +119,10 @@ const ServiceRequestForm = ({ defaultService }: ServiceRequestFormProps) => {
           className="hidden lg:block py-8"
         >
           <div className="text-left mb-8">
-            <h2 className="text-2xl lg:text-3xl font-bold mb-3">
-              Ready to get started?
-            </h2>
+            {/* Main heading */}
+            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 lg:mb-8 animate-fade-in-up animation-delay-100">
+              <span className="text-gradient glow-text">Ready to get started?</span>
+            </h1>
             <p className="text-sm text-muted-foreground">
               All project details shared through this form are reviewed personally.
             </p>
@@ -180,11 +181,11 @@ const ServiceRequestForm = ({ defaultService }: ServiceRequestFormProps) => {
         </motion.div>
 
         {/* ================= RIGHT COLUMN (FORM) ================= */}
-<motion.div
-  initial={{ opacity: 0, y: 20 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.5 }}
-  className="
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="
     w-full
     lg:max-w-xl
     lg:mx-auto
@@ -194,113 +195,121 @@ const ServiceRequestForm = ({ defaultService }: ServiceRequestFormProps) => {
     border border-border/50
     shadow-bento
   "
->
-  <form onSubmit={handleSubmit} className="space-y-6">
-    {/* Honeypot */}
-    <input type="text" name="_gotcha" className="hidden" />
+        >
+          <form onSubmit={handleSubmit} className="space-y-6">
+            {/* Honeypot */}
+            <input type="text" name="_gotcha" className="hidden" />
 
-    {/* Intro text */}
-    <p className="text-muted-foreground">
-      Tell me a bit about your project — I’ll get back with clarity,
-      timelines, and next steps.
-    </p>
+            {/* Intro text */}
+            <p className="text-muted-foreground">
+              Tell me a bit about your project — I’ll get back with clarity,
+              timelines, and next steps.
+            </p>
 
-    {/* Name + Email */}
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <div className="space-y-2">
-        <Label>Name</Label>
-        <Input
-          value={formData.name}
-          onChange={(e) =>
-            setFormData({ ...formData, name: e.target.value })
-          }
-          className="h-12 rounded-xl"
-        />
-      </div>
+            {/* Name + Email */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="space-y-2">
+                <Label>Name</Label>
+                <Input
+                  value={formData.name}
+                  onChange={(e) =>
+                    setFormData({ ...formData, name: e.target.value })
+                  }
+                  className="h-12 rounded-xl"
+                />
+              </div>
 
-      <div className="space-y-2">
-        <Label>Email</Label>
-        <Input
-          type="email"
-          value={formData.email}
-          onChange={(e) =>
-            setFormData({ ...formData, email: e.target.value })
-          }
-          className="h-12 rounded-xl"
-        />
-      </div>
-    </div>
+              <div className="space-y-2">
+                <Label>Email</Label>
+                <Input
+                  type="email"
+                  value={formData.email}
+                  onChange={(e) =>
+                    setFormData({ ...formData, email: e.target.value })
+                  }
+                  className="h-12 rounded-xl"
+                />
+              </div>
+            </div>
 
-    {/* Service */}
-    <div className="space-y-2">
-      <Label>Service Needed</Label>
-      <Input
-        value={formData.service}
-        onChange={(e) =>
-          setFormData({ ...formData, service: e.target.value })
-        }
-        className="h-12 rounded-xl"
-      />
-    </div>
+            {/* Service */}
+            <div className="space-y-2">
+              <Label>Service Needed</Label>
+              <Input
+                value={formData.service}
+                onChange={(e) =>
+                  setFormData({ ...formData, service: e.target.value })
+                }
+                className="h-12 rounded-xl"
+              />
+            </div>
 
-    {/* Details */}
-    <div className="space-y-2">
-      <Label>Project Details</Label>
-      <Textarea
-        value={formData.details}
-        onChange={(e) =>
-          setFormData({ ...formData, details: e.target.value })
-        }
-        className="min-h-[150px] rounded-xl resize-none"
-      />
-    </div>
+            {/* Details */}
+            <div className="space-y-2">
+              <Label>Project Details</Label>
+              <Textarea
+                value={formData.details}
+                onChange={(e) =>
+                  setFormData({ ...formData, details: e.target.value })
+                }
+                className="min-h-[150px] rounded-xl resize-none"
+              />
+            </div>
 
-    {/* Submit */}
-    <Button
-      variant="hero"
-      type="submit"
-      disabled={isSubmitting}
-      className="w-full h-14 rounded-xl text-lg font-semibold"
-    >
-      {isSubmitting ? (
-        <>
-          <Loader2 className="w-5 h-5 mr-2 animate-spin" />
-          Sending...
-        </>
-      ) : (
-        <>
-          <Send className="w-5 h-5 mr-2" />
-          Send Request
-        </>
-      )}
-    </Button>
+            {/* Submit */}
+            <Button
+              variant="hero"
+              type="submit"
+              disabled={isSubmitting}
+              className="w-full h-14 rounded-xl text-lg font-semibold"
+            >
+              {isSubmitting ? (
+                <>
+                  <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+                  Sending...
+                </>
+              ) : (
+                <>
+                  <Send className="w-5 h-5 mr-2" />
+                  Send Request
+                </>
+              )}
+            </Button>
 
-    {/* Helper text */}
-    <p className="text-center text-sm text-muted-foreground">
-      Or reach out directly
-    </p>
-  </form>
-</motion.div>
+            {/* Helper text */}
+            <p className="text-center text-sm text-muted-foreground">
+              Or reach out directly
+            </p>
+          </form>
+        </motion.div>
 
       </div>
 
       {/* ================= MOBILE BOTTOM BAR ================= */}
       <div className="fixed bottom-0 left-0 right-0 z-50 bg-card border-t border-border p-4 flex gap-3 lg:hidden">
-        <a
-          href="tel:+918005883696"
-          className="flex-1 h-12 rounded-xl border border-border flex items-center justify-center gap-2 font-medium"
+        <Button
+          variant="glass"
+          asChild
+          className="flex-1 h-12 rounded-xl font-medium"
         >
-          <Phone className="w-4 h-4" />
-          Call
-        </a>
+          <a href="mailto:rajuxstudio@gmail.com">
+            <Mail className="w-4 h-4 mr-2" />
+            Email
+          </a>
+        </Button>
 
-        <a
-          href="mailto:rajuxstudio@gmail.com"
-          className="flex-1 h-12 rounded-xl bg-primary text-primary-foreground flex items-center justify-center gap-2 font-medium"
+        <Button
+          variant="hero"
+          asChild
+          className="flex-1 h-12 rounded-xl font-medium"
         >
-          <Mail className="w-4 h-4" />
-          Email
-        </a>
+          <a href="tel:+918005883696">
+            <Phone className="w-4 h-4 mr-2" />
+            Call
+          </a>
+        </Button>
+
+
       </div>
     </section>
   );

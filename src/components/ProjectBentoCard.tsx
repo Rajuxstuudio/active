@@ -153,7 +153,6 @@ const ProjectBentoCard = ({ project, index }: ProjectBentoCardProps) => {
                   const { icon: Icon, color } = getTechIcon(tech);
                   return (
                     <div key={i} className="flex items-center gap-2 px-3 py-2 rounded-xl border">
-                      <Icon className="w-4 h-4" style={{ color }} />
                       <span className="text-sm">{tech}</span>
                     </div>
                   );

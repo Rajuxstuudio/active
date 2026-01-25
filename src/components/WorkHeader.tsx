@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Search, Sparkles } from "lucide-react";
+import { Search, Sparkles, Palette, Brush, Layers, Layout, Monitor, Smartphone, Code2, Terminal, Database, Cloud } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface Tab {
   id: string;
@@ -12,6 +13,56 @@ const tabs: Tab[] = [
   { id: "templates", label: "Templates", icon: "📐" },
   { id: "development", label: "Development", icon: "💻" },
 ];
+
+// Tab-specific icon configurations
+const tabIcons = {
+  "ux-ui": {
+    icons: [Palette, Brush, Layers, Sparkles],
+    colors: ["#7C3AED", "#EC4899", "#F97316", "#A855F7"],
+  },
+  "templates": {
+    icons: [Layout, Monitor, Smartphone, Layers],
+    colors: ["#06B6D4", "#3B82F6", "#6366F1", "#0EA5E9"],
+  },
+  "development": {
+    icons: [Code2, Terminal, Database, Cloud],
+    colors: ["#10B981", "#14B8A6", "#22C55E", "#059669"],
+  },
+};
+
+// Floating icon component for header
+const FloatingHeaderIcon = ({ 
+  icon: Icon, 
+  delay, 
+  x, 
+  y, 
+  color 
+}: { 
+  icon: any; 
+  delay: number; 
+  x: string; 
+  y: string; 
+  color: string;
+}) => (
+  <motion.div
+    initial={{ opacity: 0, scale: 0, y: 20 }}
+    animate={{ 
+      opacity: [0, 0.7, 0.7, 0],
+      scale: [0.5, 1.2, 1, 0.5],
+      y: [20, -10, -20, -40],
+    }}
+    transition={{
+      duration: 4,
+      delay,
+      repeat: Infinity,
+      ease: "easeInOut",
+    }}
+    className="absolute pointer-events-none"
+    style={{ left: x, top: y }}
+  >
+    <Icon className="w-5 h-5 md:w-7 md:h-7" style={{ color }} />
+  </motion.div>
+);
 
 interface WorkHeaderProps {
   activeTab: string;
@@ -37,14 +88,40 @@ const WorkHeader = ({
     onSearch(e.target.value);
   };
 
+  const currentIcons = tabIcons[activeTab as keyof typeof tabIcons] || tabIcons["ux-ui"];
+
   return (
     <div className="space-y-8">
-      {/* My Work Heading */}
-      <div className="text-center animate-fade-in">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold gradient-text mb-4">
+      {/* My Work Heading with Floating Icons */}
+      <div className="text-center animate-fade-in relative">
+        {/* Floating Icons Container - Only above heading */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={`icons-${activeTab}`}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="absolute inset-0 overflow-visible pointer-events-none"
+            style={{ height: '120px', top: '-40px' }}
+          >
+            {currentIcons.icons.map((Icon, index) => (
+              <FloatingHeaderIcon
+                key={index}
+                icon={Icon}
+                delay={index * 0.6}
+                x={`${10 + index * 25}%`}
+                y={`${15 + (index % 2) * 30}%`}
+                color={currentIcons.colors[index]}
+              />
+            ))}
+          </motion.div>
+        </AnimatePresence>
+
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold gradient-text mb-4 relative z-10">
           My Work
         </h1>
-        <div className="flex items-center justify-center gap-2 text-muted-foreground">
+        <div className="flex items-center justify-center gap-2 text-muted-foreground relative z-10">
           <Sparkles className="w-5 h-5 text-accent" />
           <span>Crafted with passion and precision</span>
         </div>
@@ -59,7 +136,7 @@ const WorkHeader = ({
               onClick={() => onTabChange(tab.id)}
               className={`px-5 py-2.5 rounded-xl text-sm font-medium transition-all duration-300 flex items-center gap-2 ${
                 activeTab === tab.id
-                  ? "bg-card text-foreground shadow-md scale-105 dark:bg-muted/50"
+                  ? "bg-card text-foreground shadow-md scale-105"
                   : "text-muted-foreground hover:text-foreground hover:bg-card/50"
               }`}
             >

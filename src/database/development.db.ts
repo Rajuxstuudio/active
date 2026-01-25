@@ -1,8 +1,8 @@
 import { ProjectDB } from "./type";
 
 // mockups
-import rajvirMobileMockup from "@/database/DevelopmentAssets/rajvirMobileMockup.jpeg";
-import rajvirWebMockup from "@/database/DevelopmentAssets/rajvirwebmockup.png";
+import rajvirMobileMockup from "@/assets/DevelopmentAssets/rajvirWebMockup.png";
+import rajvirWebMockup from "@/assets/DevelopmentAssets/rajvirwebmockup.png";
 import profileAvatar from "@/assets/profile-avatar.png"
 
 export const developmentDB: ProjectDB[] = [

@@ -21,6 +21,8 @@ import { Badge } from "@/components/ui/badge";
 import ServiceRequestForm from "@/components/ServiceRequestForm";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { SandIcon } from "@/components/SandIcon";
+import { Button } from "@/components/ui/button";
 
 
 const servicesData: Record<string, {
@@ -199,9 +201,13 @@ const ServiceDetail = () => {
             <Sparkles className="w-10 h-10 text-muted-foreground" />
           </div>
           <h1 className="text-2xl font-bold mb-4">Service not found</h1>
-          <Link to="/services" className="text-primary hover:underline inline-flex items-center gap-2">
-            <ArrowLeft className="w-4 h-4" />
-            Back to Services
+          {/* Back link */}
+          <Link
+            to="/services"
+            className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground mb-8 group"
+          >
+            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+            Back to Home
           </Link>
         </motion.div>
       </div>
@@ -238,14 +244,14 @@ const ServiceDetail = () => {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
-              className="mb-4"
+              className="mt-6"
             >
               <Link
                 to="/services"
-                className="group inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
+                className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground mb-8 group"
               >
                 <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-                Back to Services
+                Back to Home
               </Link>
             </motion.div>
 
@@ -287,19 +293,12 @@ const ServiceDetail = () => {
                 </div>
 
                 {/* CTA Button */}
-                <motion.button
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.5 }}
-                  onClick={() => setIsFormOpen(true)}
-                  className="group inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
-                >
-                  Request This Service
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </motion.button>
+                <Button variant="hero" size="lg" onClick={() => setIsFormOpen(true)}>
+                  Request This Service                <ArrowRight className="w-4 h-4 ml-2" />
+                </Button>
               </motion.div>
-              
-              
+
+
 
               {/* Right Side - Icon Card */}
               <motion.div
@@ -313,13 +312,13 @@ const ServiceDetail = () => {
                   <div className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${service.color} opacity-20 blur-2xl scale-110`} />
 
                   {/* Main Card */}
-                  <div className={`relative p-12 lg:p-16 rounded-3xl bg-gradient-to-br ${service.color} shadow-2xl`}>
+                  <div className={`relative p-12 lg:p-16 rounded-3xl  ${service.color} `}>
                     <motion.div
                       animate={{ y: [0, -10, 0] }}
                       transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                       className="flex items-center justify-center"
                     >
-                      <Icon className="w-24 h-24 lg:w-32 lg:h-32 text-white" />
+                      <SandIcon Icon={Icon} />
                     </motion.div>
 
                     {/* Decorative Elements */}
